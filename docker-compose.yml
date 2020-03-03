@@ -26,5 +26,5 @@ services:
       - POSTGRES_PASSWORD=miladivm
       - POSTGRES_DB=app_db
 
-volumes:
-  postgres_data:
+ volumes:
+    postgres_data:
