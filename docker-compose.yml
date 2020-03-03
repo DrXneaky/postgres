@@ -4,14 +4,14 @@ services:
   web:
     build:
       context: ./web/
+    environment:
+      - DATABASE_URL=postgresql://miladivm:miladi@db:5432/app_db
     expose:
       - "8000"
 
   nginx:
     restart: always
     build: ./nginx/
-    environment:
-      - DATABASE_URL=postgresql://miladivm:miladi@db:5432/app_db
     ports:
       - "80:80"
     links:
@@ -26,5 +26,5 @@ services:
       - POSTGRES_PASSWORD=miladivm
       - POSTGRES_DB=app_db
 
- volumes:
+  volumes:
     postgres_data:
