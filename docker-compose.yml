@@ -1,7 +1,6 @@
-version: '3.7'
+version: "3.7"
 
 services:
-
   web:
     build:
       context: ./web/
@@ -11,7 +10,18 @@ services:
   nginx:
     restart: always
     build: ./nginx/
+    environment:
+      - DATABASE_URL=postgresql://miladivm:miladi@db:5432/app_db
     ports:
       - "80:80"
     links:
       - web
+
+  db:
+    image: postgres:11
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environnement:
+      - POSTGRES_USER=miladi
+      - POSTGRES_PASSWORD=miladivm
+      - POSTGRES_DB=app_db
