@@ -19,7 +19,7 @@ services:
 
   db:
     image: postgres:11
-    container-name: postgres_container
+    container_name: "postgres_container"
     ports:
       - "5432:5432"
     volumes:
