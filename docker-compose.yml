@@ -21,10 +21,10 @@ services:
     image: postgres:11
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    environnement:
+    environment:
       - POSTGRES_USER=miladi
       - POSTGRES_PASSWORD=miladivm
       - POSTGRES_DB=app_db
 
-  volumes:
-    postgres_data:
+volumes:
+  postgres_data:
